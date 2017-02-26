@@ -8,7 +8,7 @@ export default function({ dispatch }) {
       return next(action)
     }
 
-    console.log('waiting for promise')
+    console.log('action contains promise...')
     // Make sure the action's promise resolves
     action.payload
       .then((response) => {
@@ -16,7 +16,7 @@ export default function({ dispatch }) {
           ...action,
           payload: response.data
         }
-        // dispatch new (modified) action through all middleware
+        // dispatch new action through all middleware from top of stack
         dispatch(newAction)
       })
   }
