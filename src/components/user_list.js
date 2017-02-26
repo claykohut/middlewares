@@ -19,7 +19,6 @@ class UserList extends Component {
   }
 
   render() {
-    console.log("this users/ ", this.props)
     return (
       <div className="user-list">
         {this.props.users.map(this.renderUser)}
