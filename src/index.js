@@ -6,8 +6,9 @@ import { createStore, applyMiddleware } from 'redux';
 import App from './components/app';
 import reducers from './reducers';
 import Async from './middlewares/async'
+import AnotherMiddleware from './middlewares/another'
 
-const createStoreWithMiddleware = applyMiddleware(Async)(createStore);
+const createStoreWithMiddleware = applyMiddleware(Async, AnotherMiddleware)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
